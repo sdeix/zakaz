@@ -31,7 +31,21 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                 <label for="floatingPassword"></label>
             </div>
+
+
         </div>
+            @error('email')
+            <p>Эта почта уже занята</p>
+            @enderror
+            @error('password')
+            <p>Длина пароля должна быть от 6 до 16 символов</p>
+            @enderror
+            @error('name')
+            <p>Длина имени должна быть меньше 30 символов</p>
+            @enderror
+            @error('surname')
+            <p>Длина фамилии должна быть меньше 30 символов</p>
+            @enderror
         <button class="btn btn-lg btn-primary faf btn-danger" type="submit" style="width: 20rem; height: 3rem; margin-top: 2rem">Войти</button>
         </form>
     </center>

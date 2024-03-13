@@ -2,8 +2,10 @@
 <title>Главная страница</title>
 
 @section('menu-buttons')
+
     <a href='/registration' type="button" class="btn btn-outline-danger" style="margin-right: 0.6rem">Зарегистрироваться</a>
     <a href='/authorization' type="button" class="btn btn-outline-danger">Войти</a>
+    <a href='/logout' type="button" class="btn btn-outline-danger">Выйти</a>
 @endsection
 @section('main-content')
     <div class="row mb-2 justify-content-center mb-md-0" style="padding-top: 5px; width: 2000px; height: 300px; font-size: 18px; margin-right: 5rem" >

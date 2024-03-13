@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string("surname",255)->nullable(false);
             $table->string("password",255)->nullable(false);
             $table->string("email",255)->nullable(false)->unique('email');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->dateTimeTz('created_at')->nullable();
+            $table->dateTimeTz('updated_at')->nullable();
         });
     }
 

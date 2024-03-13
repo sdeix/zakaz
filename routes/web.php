@@ -47,6 +47,11 @@ Route::get('registration', function () {
     }
     return view('registration');
 })->name('registration');
-Route::post('registration',['']);
+Route::post('registration',[\App\Http\Controllers\RegisterController::class,'save']);
+
+Route::get('logout', function () {
+    Auth::logout() ;
+    return redirect(route('authorization'));
+})->name('logout');
 
 
