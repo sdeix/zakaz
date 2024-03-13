@@ -39,7 +39,7 @@ Route::get('/authorization', function () {
     }
     return view('authorization');
 })->name('authorization');
-Route::post('authorization',['']);
+Route::post('authorization',[\App\Http\Controllers\AuthorizationController::class,'login']);
 
 Route::get('registration', function () {
     if(Auth::check()) {

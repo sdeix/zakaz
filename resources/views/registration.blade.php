@@ -46,7 +46,7 @@
             @error('surname')
             <p>Длина фамилии должна быть меньше 30 символов</p>
             @enderror
-        <button class="btn btn-lg btn-primary faf btn-danger" type="submit" style="width: 20rem; height: 3rem; margin-top: 2rem">Войти</button>
+        <button class="btn btn-lg btn-primary faf btn-danger" type="submit" style="width: 20rem; height: 3rem; margin-top: 2rem">Зарегистрироваться</button>
         </form>
     </center>
     <center style="margin-top: 1rem">
