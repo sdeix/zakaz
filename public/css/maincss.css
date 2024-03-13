@@ -2,3 +2,33 @@
 .active{
     text-decoration: underline;
 }
+ul{
+    list-style-type: none;
+}
+.product-card{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+.ul_card{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card_name{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+}
+.card_count{
+    font-size: 20px;
+}
+body{
+    max-width: 100%;
+}
+.card_btn{
+    width: 100%;
+}

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +55,7 @@ Route::get('logout', function () {
     return redirect(route('authorization'));
 })->name('logout');
 
-
+Route::get('products', function () {
+    $products = DB::table("Товар")->get();
+    return view("products", compact("products"));
+});

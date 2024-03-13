@@ -24,7 +24,7 @@
             </div>
         </div>
         @error('email')
-            {{$message}}
+           <p>{{$message}}</p> 
             @enderror
         <button class="btn btn-lg btn-primary faf btn-danger" type="submit" style="width: 20rem; height: 3rem; margin-top: 2rem">Войти</button>
         </form>

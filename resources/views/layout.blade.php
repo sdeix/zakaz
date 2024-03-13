@@ -14,10 +14,10 @@
     </a>
     <ul class="nav col-15 col-md-auto mb-2 justify-content-center mb-md-0" style="margin-top: 1.5rem; margin-left: 20rem">
         <li><a href="/" class="{{ request()->is('/') ? 'active' : null }} nav-link px-3" style="color: red">Главная</a></li>
-        <li><a href="#" class="nav-link px-3" style="color: red">Продукция</a></li>
+        <li><a href="products" class="{{ request()->is('contacts') ? 'active' : null }} nav-link px-3" style="color: red">Продукция</a></li>
         <li><a href="/contacts" class="{{ request()->is('contacts') ? 'active' : null }} nav-link px-3"  style="color: red">Контакты</a></li>
         <li><a href="/aboutus" class="{{ request()->is('aboutus') ? 'active' : null }} nav-link px-3"  style="color: red">О Нас</a></li>
-        <li><a href="/faq" target=_blank class="{{ request()->is('faq') ? 'active' : null }} nav-link px-3"  style="color: red">FAQ</a></li>
+        <li><a href="/faq" class="{{ request()->is('faq') ? 'active' : null }} nav-link px-3"  style="color: red">FAQ</a></li>
         <li><p class="phonenum nav-link px-5 link-secondary">Работаем с 09:00 до 00:00</p></li>
     </ul>
 @yield('menu-header')
