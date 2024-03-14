@@ -15,20 +15,31 @@ use function Laravel\Prompts\password;
 
 class Add_ProductController extends Controller
 {
-    public function save(Request $request){
+    public function save(Request $request)
+    {
+        $valid = $request->validate([
+            "name" => ["required", "string", "max:255"],
+            'price' => ["required", "integer", "min:100","min:1000"],
+            'count' => ["required", "integer", "min:1","min:100"],
+        ]);
 
-        echo $request->file('image');
-        $image = $request->file('image')->store('uploads','public');
-        echo '<img src="{$request->image }" alt="img">';
-
+        if (!$valid) {
+            return redirect()->to(route('account'));
+        }
+        $image = "";
+        if($request->file('image')){
+            $image = $request->file('image')->store('uploads', 'public');
+        }
+ 
         DB::table('Товар')->insert([
-            'Название' => $request->name, 
+            'Название' => $request->name,
             'Цена' => $request->price,
-            'Годен до' => date('2024-01-01'), 
-            'Количество' => intval($request->count), 
+            'Годен до' => date('2024-01-01'),
+            'Количество' => intval($request->count),
             'id_категории' => intval("1"),
-            'imgFile' => $image, 
-         ]);
+            'imgFile' => $image,
+        ]);
+        return redirect()->to(route('products'));
         // $validateField = $request->validate([
         //     "email"=> ["required","string","max:255","email",'unique:users'],
         //     'password'=>["required","string","min:6","max:16"],

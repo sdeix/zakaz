@@ -7,7 +7,7 @@
 @section('main-content')
 
     <center>
-        <h1 class="h3 mb-4 fw-normal" style="margin-top: 5rem">РЕГИСТРАЦИЯ</h1>
+        <h1 class="h3 mb-4 fw-normal" style="margin-top: 5rem">Создание товара</h1>
         <form action="{{route('add_product')}}" method="post" enctype= multipart/form-data>
         @csrf
         <div style="width: 25rem">
@@ -32,17 +32,14 @@
                 <label for="floatingPassword"></label>
             </div>
         </div>
-            @error('email')
-            <p>Эта почта уже занята</p>
-            @enderror
-            @error('password')
-            <p>Длина пароля должна быть от 6 до 16 символов</p>
-            @enderror
             @error('name')
-            <p>Длина имени должна быть меньше 30 символов</p>
+            <p>Максимальное значение названия 255 символов</p>
             @enderror
-            @error('surname')
-            <p>Длина фамилии должна быть меньше 30 символов</p>
+            @error('price')
+            <p>Значение цены должно быть от 100 до 1000</p>
+            @enderror
+            @error('count')
+            <p>Значение колличества должно быть от 1 до 100</p>
             @enderror
         <button class="btn btn-lg btn-primary faf btn-danger" type="submit" style="width: 20rem; height: 3rem; margin-top: 2rem">Создать товар</button>
         </form>
