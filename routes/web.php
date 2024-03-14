@@ -66,11 +66,13 @@ Route::post('/basket/add/{id_товара}', [\App\Http\Controllers\BasketContro
     ->where('id_товара', '[0-9]+')
     ->name('basket.add');
 
-
-
-
-
-
+Route::post('/basket/plus/{id}',  [\App\Http\Controllers\BasketController::class,'plus'])
+    ->where('id', '[0-9]+')
+    ->name('basket.plus');
+Route::post('/basket/minus/{id}', [\App\Http\Controllers\BasketController::class,'minus'])
+    ->where('id', '[0-9]+')
+    ->name('basket.minus');
+Route::post('/basket/clear', [\App\Http\Controllers\BasketController::class,'clear'])->name('basket.clear');
 
 
 
