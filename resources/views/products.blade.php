@@ -11,11 +11,24 @@
 @endif
 @endsection
 @section('main-content')
+@if(Auth::check())
+        @if(Auth::user()->role=="admin")
+<h1><a href="/add_product">Добавить товар</a></h1>
+        @endif
+@endif
 <ul class="ul_card">
 @foreach($products as $product)
 <div class="product-card col-xxl-3 col-lg-5 col-11 rounded border">
     <div class="">
+    @if(strpos( $product->imgFile,'://'))
         <img src="{{$product->imgFile}}" style="max-width: 100%;" alt="Изображение временно отсутствует">
+        @else
+        @isset ($product->imgFile)
+        <img src="{{asset('/storage/' . $product->imgFile) }}" style="max-width: 100%;" alt="Изображение временно отсутствует">
+        @endisset
+        @endif
+
+       
     </div>
     <p class="card_name">{{$product->Название}}</p>
     <p class = "card_count">Осталось: {{$product->Количество}}</p>

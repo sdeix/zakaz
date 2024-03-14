@@ -76,6 +76,15 @@ Route::post('/basket/clear', [\App\Http\Controllers\BasketController::class,'cle
 
 
 
+Route::get('add_product', function () {
+    if(Auth::check()) {
+        if(Auth::user()->role=="admin"){
+            return view('add_product');
+        }
+    }
+    return redirect(route('products'));
+})->name('add_product');
+Route::post('add_product',[\App\Http\Controllers\Add_ProductController::class,'save']);
 
 
 
