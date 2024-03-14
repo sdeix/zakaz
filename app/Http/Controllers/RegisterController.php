@@ -21,7 +21,7 @@ class RegisterController extends Controller
             "email"=> ["required","string","max:255","email",'unique:users'],
             'password'=>["required","string","min:6","max:16"],
             'name'=> ["required","string","max:30"],
-            'surname'=>["required","string","max:30"]
+            'surname'=>["required","string","max:30"],
         ]);
         $user = User::create($validateField);
         if($user){
