@@ -19,7 +19,14 @@
     </div>
     <p class="card_name">{{$product->Название}}</p>
     <p class = "card_count">Осталось: {{$product->Количество}}</p>
-    <button class="card_btn">Добавить в корзину</button>
+    <form action="{{ route('basket.add', $product->id_товара) }}"
+          method="post" class="form-inline">
+        @csrf
+        <label for="input-quantity">Количество</label>
+        <input type="text" name="quantity" id="input-quantity" value="1"
+               class="form-control mx-2 w-25">
+        <button type="submit" class="card_btn btn btn-success">Добавить в корзину</button>
+    </form>
 </div>
 @endforeach
 

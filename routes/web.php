@@ -58,4 +58,25 @@ Route::get('logout', function () {
 Route::get('products', function () {
     $products = DB::table("Товар")->get();
     return view("products", compact("products"));
-});
+})->name("products");
+
+Route::get('/basket', [\App\Http\Controllers\BasketController::class,'index'])->name('basket');
+
+Route::post('/basket/add/{id_товара}', [\App\Http\Controllers\BasketController::class,'add'])
+    ->where('id_товара', '[0-9]+')
+    ->name('basket.add');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
