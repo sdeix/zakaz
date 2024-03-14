@@ -18,9 +18,13 @@ class BasketController extends Controller {
         $basket_id = $request->cookie('basket_id');
         if (!empty($basket_id)) {
             $products = Basket::findOrFail($basket_id)->products;
+            if(empty($products)) {
+                return redirect()->route('basket');               
+            }
+
             return view('basket', compact('products'));
         } else {
-            abort(404);
+            return redirect()->route('basket');
         }
     }
 
@@ -97,6 +101,7 @@ class BasketController extends Controller {
 
     public function clear() {
         $this->basket->delete();
+        $this->getBasket();
         return redirect()->route('basket');
     }
     private function getBasket() {

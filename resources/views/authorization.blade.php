@@ -1,9 +1,7 @@
 @extends('layout')
 <title>Авторизация</title>
 
-@section('menu-buttons')
-    <a href='/registration' type="button" class="btn btn-outline-danger" style="margin-right: 0.6rem">Я хочу зарегистрироваться!</a>
-@endsection
+
 @section('main-content')
     <center>
 

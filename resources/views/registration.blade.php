@@ -1,9 +1,6 @@
 @extends('layout')
 <title>Регистрация</title>
 
-@section('menu-buttons')
-    <a href='/authorization' type="button" class="btn btn-outline-danger">Я уже зарегистрирован!</a>
-@endsection
 @section('main-content')
 
     <center>

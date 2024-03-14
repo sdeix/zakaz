@@ -9,7 +9,7 @@
 
 </head>
 <header id="header" class="d-flex  align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-    <div class="col-4 d-flex align-items-center">
+    <div class="col-2 d-flex align-items-center">
     <a class="logo" href="/">
         <img class="block-d" style="padding-top: 0.1rem; padding-left: 5rem" width="200" height="100" src="/images/dostlogo.png" alt="">
     </a>
@@ -17,10 +17,11 @@
 @yield('menu-buttons')
 
     </div>
-    <div class="col-8">
+    <div class="col-10 d-flex nowrap">
 
     <ul class="nav col-15 col-md-auto mb-2 justify-content-center mb-md-0" style="margin-top: 1.5rem; ">
-        <li><a href="/" class="{{ request()->is('/') ? 'active' : null }} nav-link px-3" style="color: red">Главная</a></li>
+    <li><p class="phonenum nav-link px-5 link-secondary">Работаем с 09:00 до 00:00</p></li>
+    <li><a href="/" class="{{ request()->is('/') ? 'active' : null }} nav-link px-3" style="color: red">Главная</a></li>
         @if(Auth::check())
         <li><a href="basket" class="{{ request()->is('basket') ? 'active' : null }} nav-link px-3" style="color: red">Корзина</a></li>
         @endif
@@ -28,7 +29,13 @@
         <li><a href="/contacts" class="{{ request()->is('contacts') ? 'active' : null }} nav-link px-3"  style="color: red">Контакты</a></li>
         <li><a href="/aboutus" class="{{ request()->is('aboutus') ? 'active' : null }} nav-link px-3"  style="color: red">О Нас</a></li>
         <li><a href="/faq" class="{{ request()->is('faq') ? 'active' : null }} nav-link px-3"  style="color: red">FAQ</a></li>
-        <li><p class="phonenum nav-link px-5 link-secondary">Работаем с 09:00 до 00:00</p></li>
+        @if(Auth::check())
+        <li><a href="/account" class="{{ request()->is('account') ? 'active' : null }} nav-link px-3"  style="color: red">Профиль</a></li>
+        <li><a href='/logout' type="button" class="btn btn-outline-danger">Выйти</a></li>
+        @else
+        <li><a href='/registration' type="button" class="btn btn-outline-danger" style="margin-right: 0.6rem">Зарегистрироваться</a></li>
+        <li><a href='/authorization' type="button" class="btn btn-outline-danger">Войти</a></li>
+        @endif
     </ul>
     </div>
     </header>

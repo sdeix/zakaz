@@ -87,6 +87,12 @@ Route::get('add_product', function () {
 Route::post('add_product',[\App\Http\Controllers\Add_ProductController::class,'save']);
 
 
+Route::post('delete_product/{id}', [\App\Http\Controllers\Delete_ProductController::class,'delete'])
+    ->where('id', '[0-9]+')
+    ->name('delete_product');
+
+
+
 
 
 

@@ -19,8 +19,8 @@ class Add_ProductController extends Controller
     {
         $valid = $request->validate([
             "name" => ["required", "string", "max:255"],
-            'price' => ["required", "integer", "min:100","min:1000"],
-            'count' => ["required", "integer", "min:1","min:100"],
+            'price' => ["required", "integer", "min:100","max:1000"],
+            'count' => ["required", "integer", "min:1","max:100"],
         ]);
 
         if (!$valid) {
